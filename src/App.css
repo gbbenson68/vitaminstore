@@ -1,16 +1,19 @@
-.App {
+html, body {
   text-align: center;
+  background: url('./background.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 15vh;
   pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* background-color: #282c34; */
+  max-height: 20vh;
+  margin-top: 6vh;
   display: flex;
   flex-direction: column;
   align-items: center;

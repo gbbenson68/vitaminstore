@@ -1,4 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vitaminstore
+This is a practice repo used to practice some React things. In addition to using `create-react-app` to create the application, installed __react-lazyload__ with `npm install --save react-lazyload`.
+
+_NOTE: I've had to make some changes between this and the online tutorial to get things to work in a similar fashion._
 
 ## Available Scripts
 
