@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.png'
 import './App.css'
 import Card from './components/Card.js'
+import Loading from './components/Loading.js'
 
 class App extends Component {
   constructor (props) {
@@ -9,6 +10,7 @@ class App extends Component {
 
     this.state = {
       toggleLogo: true,
+      loading: true,
       cards: [ { id: 0,
                  animation: 'card'
                },
@@ -43,26 +45,35 @@ class App extends Component {
     this.setState({ cards })
   }
 
+  componentDidMount() {
+    setTimeout(() => this.setState({ loading: false }), 3000)
+  }
+
   render () {
     return (
       <div className="App">
         <header className="App-header">
           <img
             src={logo}
-            className={this.state.toggleLogo ? 'App-logo-static' : 'App-logo-static animated rubberBand,'}
+            className={this.state.toggleLogo ? 'App-logo-static' : 'App-logo-static animated rubberBand'}
             alt="logo"
             onMouseEnter={this.toggleLogo}
             onMouseLeave={this.toggleLogo}
           />
           <h2>Welcome to React</h2>
         </header>
-        <div className="Grid">
-          {
-            this.state.cards.map(card => (
-              <Card duration={150} key={card.id} card={card} clickCard={this.clickCard} />
-            ))
-          }
-        </div>
+        {
+          this.state.loading ? <Loading /> : (
+            <div className="Grid">
+              {
+                this.state.cards.map(card => (
+                  <Card duration={150} key={card.id} card={card} clickCard={this.clickCard} />
+                ))
+              }
+              </div>
+            )
+        }
+
       </div>
     )
   }
