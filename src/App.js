@@ -3,6 +3,7 @@ import logo from './logo.png'
 import './App.css'
 import Card from './components/Card.js'
 import Loading from './components/Loading.js'
+import Navigation from './components/Navigation.js'
 
 class App extends Component {
   constructor (props) {
@@ -45,6 +46,15 @@ class App extends Component {
     this.setState({ cards })
   }
 
+  openNav = () => {
+    document.getElementById('myNav').style.width = '100%'
+  }
+
+  closeNav= () => {
+    document.getElementById('myNav').style.width = '0%'
+  }
+
+
   componentDidMount() {
     setTimeout(() => this.setState({ loading: false }), 3000)
   }
@@ -59,8 +69,9 @@ class App extends Component {
             alt="logo"
             onMouseEnter={this.toggleLogo}
             onMouseLeave={this.toggleLogo}
+            onClick={this.openNav}
           />
-          <h2>Welcome to React</h2>
+          <Navigation closeNav={this.closeNav} />
         </header>
         {
           this.state.loading ? <Loading /> : (

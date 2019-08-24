@@ -14,10 +14,12 @@ html, body {
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 15vh;
+  cursor: pointer;
 }
 
 .App-logo-static {
   height: 15vh;
+  cursor: pointer;
 }
 
 .App-header {
