@@ -9,18 +9,38 @@ class App extends Component {
 
     this.state = {
       toggleLogo: true,
-      cards: [ {id: 1},
-               {id: 2},
-               {id: 3},
-               {id: 4},
-               {id: 5},
-               {id: 6}
+      cards: [ { id: 0,
+                 animation: 'card'
+               },
+               { id: 1,
+                 animation: 'card'
+               },
+               { id: 2,
+                 animation: 'card'
+               },
+               { id: 3,
+                 animation: 'card'
+               },
+               { id: 4,
+                 animation: 'card'
+               },
+               { id: 5,
+                 animation: 'card'
+               }
              ]
     }
   }
 
-  toggleLogo = (event) => {
+  toggleLogo = event => {
     this.setState(prevState => ({ toggleLogo: !prevState.toggleLogo }))
+  }
+
+  clickCard = card => {
+    let cards = this.state.cards
+    cards[card.id].animation = 'card animated zoomOut'
+    console.log(cards)
+
+    this.setState({ cards })
   }
 
   render () {
@@ -29,7 +49,7 @@ class App extends Component {
         <header className="App-header">
           <img
             src={logo}
-            className={this.state.toggleLogo ? 'App-logo-static' : 'App-logo-static animated rubberBand'}
+            className={this.state.toggleLogo ? 'App-logo-static' : 'App-logo-static animated rubberBand,'}
             alt="logo"
             onMouseEnter={this.toggleLogo}
             onMouseLeave={this.toggleLogo}
@@ -39,7 +59,7 @@ class App extends Component {
         <div className="Grid">
           {
             this.state.cards.map(card => (
-              <Card duration={150} key={card.id} />
+              <Card duration={150} key={card.id} card={card} clickCard={this.clickCard} />
             ))
           }
         </div>
