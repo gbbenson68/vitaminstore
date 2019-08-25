@@ -12,21 +12,29 @@ html, body {
 }
 
 .App-logo-static {
-  height: 15vh;
+  height: 150px;
   cursor: pointer;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
 
 .menu {
-  /* position: absolute; */
+  position: fixed;
   margin-left: auto;
   margin-right: auto;
-  /* top: 100px; */
+  top: 170px;
   left: 0;
   right: 0;
   font-weight: 800;
   font-size: 35px;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0, 0.42);
   cursor: pointer;
+  z-index: 99;
 }
 
 .menu-hidden {
@@ -47,13 +55,4 @@ html, body {
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
