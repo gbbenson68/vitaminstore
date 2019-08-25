@@ -53,9 +53,6 @@ class App extends Component {
     document.getElementById('myNav').style.width = '0%'
   }
 
-
-
-
   render () {
     return (
       <div className="App">
